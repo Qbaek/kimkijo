@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400&family=DM+Mono:wght@400&display=swap');
+
+/* 다크버전을 위한 설정 시작 */
+:root {
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #F0EAE0;
+  --bg-card: #EDE5D8;
+  --bg-card-deep: #E4DAC8;
+  --text-primary: #2C1F0E;
+  --text-secondary: rgba(44,31,14,0.7);
+  --text-tertiary: rgba(44,31,14,0.5);
+  --text-muted: rgba(44,31,14,0.35);
+  --gold: #8B6340;
+  --gold-muted: rgba(139,99,64,0.6);
+  --border: rgba(44,31,14,0.08);
+  --border-light: rgba(44,31,14,0.1);
+  --nav-bg: #EDE5D8;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0D0B08;
+  --bg-secondary: #100D0A;
+  --bg-card: #161208;
+  --bg-card-deep: #1A1410;
+  --text-primary: #F0E8DC;
+  --text-secondary: rgba(240,232,220,0.7);
+  --text-tertiary: rgba(240,232,220,0.5);
+  --text-muted: rgba(240,232,220,0.35);
+  --gold: #C09060;
+  --gold-muted: rgba(192,144,96,0.6);
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.08);
+  --nav-bg: #0A0805;
+}
+/* 다크버전을 위한 설정 끝 */
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Serif KR', serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.sec-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.sec-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--gold-muted);
+  margin-right: 10px;
+}
+
+.sec-title {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.sec-en {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* 반응형을 위한 css 시작 */
+/* 반응형을 위한 css 끝 */

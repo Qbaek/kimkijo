@@ -1,0 +1,77 @@
+.life {
+  background: var(--bg-primary);
+  padding: 64px 32px;
+}
+
+.life-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.life-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+  min-height: 160px;
+}
+
+.lc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--gold-muted);
+  margin-bottom: 8px;
+}
+
+.lc-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.lc-body {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  white-space: pre-line;
+}
+
+.quote-block {
+  background: var(--bg-card);
+  border-left: 1.5px solid var(--gold);
+  padding: 24px 28px;
+}
+
+.quote-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.quote-source {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+/* 반응형을 위한 css 시작 */
+@media (max-width: 768px) {
+  .life {
+    padding: 48px 16px;
+  }
+
+  .life-cards {
+    grid-template-columns: 1fr;
+  }
+}
+/* 반응형을 위한 css 끝 */

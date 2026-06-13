@@ -1,0 +1,35 @@
+.footer {
+  background: var(--nav-bg);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  border-top: 0.5px solid var(--border-light);
+}
+
+.footer-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+}
+
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* 반응형을 위한 css 시작 */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 16px;
+    gap: 6px;
+    text-align: center;
+  }
+}
+/* 반응형을 위한 css 끝 */

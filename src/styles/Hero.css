@@ -1,0 +1,180 @@
+.hero {
+  min-height: 100vh;
+  padding-top: 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.hero-left {
+  background: var(--bg-primary);
+  padding: 80px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right {
+  background: var(--bg-secondary);
+  padding: 80px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-divider {
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  bottom: 0;
+  width: 0.5px;
+  background: var(--border-light);
+}
+
+.photo-placeholder {
+  width: 280px;
+  height: 380px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-light);
+}
+
+.artwork-placeholder {
+  width: 340px;
+  height: 340px;
+  background: var(--bg-card-deep);
+  border: 0.5px solid var(--border-light);
+}
+
+.overlay-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  margin-top: -150px;
+  width: 280px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-light);
+  padding: 28px 24px;
+  z-index: 10;
+}
+
+.oc-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.oc-name-ko {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.oc-name-en {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+
+.oc-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 16px;
+}
+
+.oc-desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+.oc-scroll {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* 반응형을 위한 css 시작 */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-left {
+    flex: 1;
+    padding: 40px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-right {
+    flex: 1;
+    padding: 40px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-divider {
+    display: none;
+  }
+
+  .photo-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+
+  .artwork-placeholder {
+    width: 200px;
+    height: 200px;
+  }
+
+ .overlay-card {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  width: 85%;
+  max-width: 300px;
+  margin: 0 auto;
+  margin-bottom: -120px;
+  order: 2;
+  z-index: 10;
+}
+
+.hero-right {
+  order: 3;
+  flex: 1;
+  padding: 160px 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .hero-left {
+    order: 1;
+  }
+
+
+
+  .oc-name-ko {
+    font-size: 28px;
+  }
+}
+/* 반응형을 위한 css 끝 */

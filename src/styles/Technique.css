@@ -1,0 +1,233 @@
+.technique {
+  background: var(--bg-primary);
+  padding: 64px 32px;
+}
+
+.tech-tabs {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.tech-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  padding: 0 0 8px;
+}
+
+.tech-tab.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--gold);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.step-line {
+  position: absolute;
+  top: 40px;
+  left: calc(12.5% + 20px);
+  width: calc(75% - 40px);
+  height: 0.5px;
+  background: var(--gold-muted);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.step-circle-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.step-name {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.step-keyword {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--gold-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.step-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 18px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.sc-year::after { background: #8B6340; }
+.sc-temp::after { background: #C06040; }
+.sc-exhi::after { background: #6090B0; }
+.sc-edu::after  { background: #70A068; }
+
+.sc-en {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sc-num {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.sc-year .sc-num { color: #8B6340; }
+.sc-temp .sc-num { color: #C06040; font-size: 28px; }
+.sc-exhi .sc-num { color: #6090B0; }
+.sc-edu  .sc-num { color: #70A068; }
+
+.sc-unit {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.sc-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.detail-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.dc-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.dc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.dc-name {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.dc-desc {
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+
+/* 반응형을 위한 css 시작 */
+@media (max-width: 768px) {
+  .technique {
+    padding: 48px 16px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .step-line {
+    display: none;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-row {
+    grid-template-columns: 1fr;
+  }
+}
+/* 반응형을 위한 css 끝 */
