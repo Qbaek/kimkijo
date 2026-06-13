@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kimkijo/static/css/main.f065ce17.css",
+    "main.js": "/kimkijo/static/js/main.6b90b02a.js",
+    "static/js/453.04cd6c47.chunk.js": "/kimkijo/static/js/453.04cd6c47.chunk.js",
+    "index.html": "/kimkijo/index.html",
+    "main.f065ce17.css.map": "/kimkijo/static/css/main.f065ce17.css.map",
+    "main.6b90b02a.js.map": "/kimkijo/static/js/main.6b90b02a.js.map",
+    "453.04cd6c47.chunk.js.map": "/kimkijo/static/js/453.04cd6c47.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f065ce17.css",
+    "static/js/main.6b90b02a.js"
+  ]
+}
