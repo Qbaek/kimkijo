@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김기조 · Kim Ki-jo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Serif KR',serif;
+  background:#F5F0E8;
+  color:#2C1F0E;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  height:52px;
+  background:#EDE5D8;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  z-index:100;
+  border-bottom:0.5px solid rgba(44,31,14,0.1);
+}
+.nav-logo{
+  font-family:'Noto Serif KR',serif;
+  font-size:14px;font-weight:300;
+  color:#2C1F0E;letter-spacing:0.05em;
+}
+.nav-tabs{
+  display:flex;gap:32px;
+}
+.nav-tabs a{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:0.12em;
+  color:rgba(44,31,14,0.5);
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-tabs a:hover{color:#2C1F0E}
+
+/* ===== HERO ===== */
+#hero{
+  min-height:100vh;
+  padding-top:52px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+}
+.hero-left{
+  background:#F5F0E8;
+  padding:80px 48px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.hero-right{
+  background:#F0EAE0;
+  padding:80px 48px;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-divider{
+  position:absolute;
+  left:50%;top:52px;bottom:0;
+  width:0.5px;
+  background:rgba(44,31,14,0.12);
+}
+.photo-placeholder{
+  width:280px;height:380px;
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.1);
+}
+.artwork-placeholder{
+  width:340px;height:340px;
+  background:#E8E0D0;
+  border:0.5px solid rgba(44,31,14,0.1);
+}
+.overlay-card{
+  position:absolute;
+  left:50%;transform:translateX(-50%);
+  top:50%;margin-top:-150px;
+  width:280px;
+  background:rgba(240,235,226,0.92);
+  border:0.5px solid rgba(44,31,14,0.1);
+  padding:28px 24px;
+  z-index:10;
+}
+.oc-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.14em;
+  color:rgba(44,31,14,0.4);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.oc-name-ko{
+  font-size:36px;font-weight:300;
+  color:#2C1F0E;letter-spacing:0.04em;
+  margin-bottom:4px;
+}
+.oc-name-en{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:0.1em;
+  color:rgba(44,31,14,0.5);margin-bottom:14px;
+}
+.oc-divider{
+  width:40px;height:1px;
+  background:#8B6340;margin-bottom:16px;
+}
+.oc-desc{
+  font-size:11px;color:rgba(44,31,14,0.7);
+  line-height:1.8;letter-spacing:0.03em;
+  margin-bottom:20px;
+}
+.oc-scroll{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;
+  color:rgba(44,31,14,0.35);
+  text-transform:uppercase;
+}
+
+/* ===== SECTION COMMON ===== */
+section{padding:64px 32px}
+.sec-header{
+  display:flex;align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:40px;
+  padding-bottom:16px;
+  border-bottom:0.5px solid rgba(44,31,14,0.1);
+}
+.sec-num{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.14em;
+  color:rgba(139,99,64,0.6);
+  margin-right:10px;
+}
+.sec-title{
+  font-size:22px;font-weight:300;
+  color:#2C1F0E;letter-spacing:0.05em;
+}
+.sec-en{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.12em;
+  color:rgba(44,31,14,0.3);
+  text-transform:uppercase;
+}
+
+/* ===== SECTION 02 LIFE ===== */
+#life{background:#F5F0E8}
+.life-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-bottom:24px;
+}
+.life-card{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  border-radius:4px;padding:24px;
+  min-height:160px;
+}
+.lc-num{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.12em;
+  color:rgba(139,99,64,0.6);margin-bottom:8px;
+}
+.lc-title{
+  font-size:14px;font-weight:400;
+  color:#2C1F0E;letter-spacing:0.05em;
+  margin-bottom:10px;
+}
+.lc-body{
+  font-size:10px;color:rgba(44,31,14,0.6);
+  line-height:1.8;letter-spacing:0.03em;
+}
+.quote-block{
+  background:#EDE5D8;
+  border-left:1.5px solid #8B6340;
+  padding:24px 28px;
+  margin-bottom:16px;
+}
+.quote-text{
+  font-size:13px;font-weight:300;
+  color:rgba(44,31,14,0.8);
+  letter-spacing:0.04em;line-height:1.8;
+  margin-bottom:10px;
+}
+.quote-source{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;
+  color:rgba(139,99,64,0.6);
+}
+
+/* ===== SECTION 03 GALLERY ===== */
+#gallery{background:#F0EAE0}
+.gallery-controls{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+}
+.view-toggle{
+  display:flex;gap:0;
+  border:0.5px solid rgba(44,31,14,0.15);
+  border-radius:3px;overflow:hidden;
+}
+.vt-btn{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;
+  padding:6px 14px;
+  color:rgba(44,31,14,0.5);
+  background:transparent;border:none;cursor:pointer;
+  text-transform:uppercase;
+}
+.vt-btn.active{
+  background:#EDE5D8;
+  color:#2C1F0E;
+}
+.filter-tabs{
+  display:flex;gap:20px;
+}
+.ft-btn{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;
+  color:rgba(44,31,14,0.5);
+  background:none;border:none;cursor:pointer;
+  text-transform:uppercase;padding:0;
+}
+.ft-btn.active{color:rgba(139,99,64,1)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+.gallery-cell{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  aspect-ratio:1;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;
+  padding:16px;
+}
+.cell-name{
+  font-size:11px;color:rgba(44,31,14,0.8);
+  letter-spacing:0.04em;margin-bottom:4px;
+  text-align:center;
+}
+.cell-year{
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:rgba(139,99,64,0.6);
+  letter-spacing:0.08em;
+}
+
+/* ===== SECTION 04 TECHNIQUE ===== */
+#technique{background:#F5F0E8}
+.tech-tabs{
+  display:flex;gap:24px;margin-bottom:32px;
+}
+.tech-tab{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.12em;
+  color:rgba(44,31,14,0.4);
+  text-transform:uppercase;
+  background:none;border:none;cursor:pointer;
+  padding:0 0 8px;
+  border-bottom:1px solid transparent;
+}
+.tech-tab.active{
+  color:#2C1F0E;
+  border-bottom-color:#8B6340;
+}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* 단계별 프로세스 */
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;margin-bottom:32px;
+}
+.step-line{
+  position:absolute;
+  top:40px;left:calc(12.5% + 20px);
+  width:calc(75% - 40px);height:0.5px;
+  background:linear-gradient(to right,rgba(139,99,64,0.2),rgba(139,99,64,0.4),rgba(139,99,64,0.2));
+}
+.step{
+  display:flex;flex-direction:column;
+  align-items:center;padding:0 12px;
+  position:relative;z-index:1;
+}
+.step-circle{
+  width:80px;height:80px;border-radius:50%;
+  background:#DDD5C8;
+  border:0.5px solid rgba(44,31,14,0.1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;
+}
+.step-circle-text{
+  font-size:14px;font-weight:300;
+  color:#2C1F0E;letter-spacing:0.05em;
+}
+.step-name{
+  font-size:11px;color:rgba(44,31,14,0.6);
+  letter-spacing:0.05em;margin-bottom:4px;text-align:center;
+}
+.step-keyword{
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:rgba(139,99,64,0.6);
+  letter-spacing:0.08em;margin-bottom:10px;text-align:center;
+}
+.step-desc{
+  font-size:10px;color:rgba(44,31,14,0.5);
+  line-height:1.7;letter-spacing:0.03em;text-align:center;
+}
+
+/* 인포그래픽 */
+.stat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:8px;margin-bottom:12px;
+}
+.stat-card{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  border-radius:4px;padding:18px 16px;
+  position:relative;overflow:hidden;
+}
+.stat-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+}
+.sc-year::after{background:#8B6340}
+.sc-temp::after{background:#C06040}
+.sc-exhi::after{background:#6090B0}
+.sc-edu::after{background:#70A068}
+.sc-en{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:0.14em;
+  color:rgba(44,31,14,0.35);
+  text-transform:uppercase;margin-bottom:10px;
+}
+.sc-num{
+  font-size:36px;font-weight:300;
+  letter-spacing:0.02em;line-height:1;margin-bottom:6px;
+}
+.sc-year .sc-num{color:#8B6340}
+.sc-temp .sc-num{color:#C06040;font-size:28px;margin-top:4px}
+.sc-exhi .sc-num{color:#6090B0}
+.sc-edu .sc-num{color:#70A068}
+.sc-unit{
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:rgba(44,31,14,0.35);
+  letter-spacing:0.1em;margin-bottom:8px;
+}
+.sc-label{
+  font-size:11px;color:rgba(44,31,14,0.7);
+  letter-spacing:0.05em;
+}
+.detail-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+.detail-card{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  border-radius:4px;padding:16px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.dc-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.dc-label{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:0.14em;
+  color:rgba(139,99,64,0.6);
+  text-transform:uppercase;margin-bottom:5px;
+}
+.dc-name{
+  font-size:13px;font-weight:300;
+  color:rgba(44,31,14,0.8);letter-spacing:0.05em;margin-bottom:5px;
+}
+.dc-desc{
+  font-size:10px;color:rgba(44,31,14,0.5);
+  line-height:1.7;letter-spacing:0.03em;
+}
+
+/* ===== SECTION 05 CHRONOLOGY ===== */
+#chronology{background:#F0EAE0}
+.chron-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+.timeline{}
+.tl-row{
+  display:grid;grid-template-columns:80px 1fr;
+  gap:16px;align-items:baseline;
+  padding:14px 0;
+  border-bottom:0.5px solid rgba(44,31,14,0.07);
+}
+.tl-year{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:0.08em;
+  color:rgba(44,31,14,0.5);
+}
+.tl-year.highlight{color:#8B6340}
+.tl-event{
+  font-size:12px;color:rgba(44,31,14,0.7);
+  letter-spacing:0.03em;
+}
+.tl-event.highlight{
+  color:#2C1F0E;font-weight:400;
+}
+.graph-area{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  border-radius:4px;padding:24px;
+}
+.graph-label{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:0.14em;
+  color:rgba(44,31,14,0.35);
+  text-transform:uppercase;margin-bottom:20px;
+}
+.graph-row{
+  display:grid;grid-template-columns:80px 1fr;
+  gap:12px;align-items:center;margin-bottom:20px;
+}
+.gr-label{
+  font-size:10px;color:rgba(44,31,14,0.6);
+  letter-spacing:0.03em;
+}
+.gr-bar{height:3px;border-radius:2px}
+.gr-bar.b1{background:#C09060;width:95%}
+.gr-bar.b2{background:#6090B0;width:75%}
+.gr-bar.b3{background:#70A068;width:45%}
+.gr-bar.b4{background:#9080B0;width:35%}
+.gr-bar.b5{background:#C07868;width:30%}
+
+/* ===== SECTION 06 ARCHIVE ===== */
+#archive{background:#F5F0E8}
+.archive-filters{
+  display:flex;gap:24px;margin-bottom:28px;
+}
+.af-btn{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.1em;
+  color:rgba(44,31,14,0.4);
+  background:none;border:none;cursor:pointer;
+  text-transform:uppercase;padding:0;
+}
+.af-btn.active{color:#2C1F0E}
+.archive-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.archive-card{
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.08);
+  border-radius:4px;overflow:hidden;
+}
+.ac-thumb{
+  height:240px;background:#E4DAC8;
+}
+.ac-body{padding:16px}
+.ac-type{
+  font-family:'DM Mono',monospace;
+  font-size:8px;letter-spacing:0.12em;
+  color:rgba(139,99,64,0.6);
+  text-transform:uppercase;margin-bottom:6px;
+}
+.ac-title{
+  font-size:12px;color:rgba(44,31,14,0.8);
+  letter-spacing:0.04em;
+}
+
+/* ===== SECTION 07 TRIBUTE ===== */
+#tribute{
+  background:#F0EAE0;
+  text-align:center;padding:80px 32px;
+}
+.tribute-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.14em;
+  color:rgba(44,31,14,0.4);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.tribute-divider{
+  width:40px;height:1px;
+  background:#8B6340;
+  margin:0 auto 40px;
+}
+.tribute-quote{
+  font-size:16px;font-weight:300;
+  color:rgba(44,31,14,0.8);
+  letter-spacing:0.04em;line-height:1.8;
+  max-width:760px;margin:0 auto 40px;
+}
+.tribute-photo{
+  width:200px;height:140px;
+  background:#EDE5D8;
+  border:0.5px solid rgba(44,31,14,0.1);
+  margin:0 auto 32px;
+}
+.tribute-body{
+  font-size:11px;color:rgba(44,31,14,0.55);
+  line-height:1.8;letter-spacing:0.03em;
+  max-width:600px;margin:0 auto;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#EDE5D8;height:60px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding:0 32px;
+  border-top:0.5px solid rgba(44,31,14,0.1);
+}
+.footer-name{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:0.1em;
+  color:rgba(44,31,14,0.6);
+}
+.footer-copy{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:0.08em;
+  color:rgba(44,31,14,0.4);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">김기조</div>
+  <div class="nav-tabs">
+    <a href="#life">생애</a>
+    <a href="#gallery">갤러리</a>
+    <a href="#technique">기법</a>
+    <a href="#chronology">연보</a>
+    <a href="#archive">아카이브</a>
+    <a href="#tribute">헌정</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-divider"></div>
+  <div class="hero-left">
+    <div class="photo-placeholder"></div>
+  </div>
+  <div class="hero-right">
+    <div class="artwork-placeholder"></div>
+  </div>
+  <div class="overlay-card">
+    <div class="oc-eyebrow">Ceramist · Professor · Artist</div>
+    <div class="oc-name-ko">김기조</div>
+    <div class="oc-name-en">Kim Ki-jo · 1949–</div>
+    <div class="oc-divider"></div>
+    <div class="oc-desc">흙과 불, 50년의 시간이 빚은 예술 세계를 기억합니다.</div>
+    <div class="oc-scroll">scroll to explore ↓</div>
+  </div>
+</section>
+
+<!-- LIFE -->
+<section id="life">
+  <div class="sec-header">
+    <div><span class="sec-num">02</span><span class="sec-title">생애</span></div>
+    <div class="sec-en">Life &amp; Philosophy</div>
+  </div>
+  <div class="life-cards">
+    <div class="life-card">
+      <div class="lc-num">01</div>
+      <div class="lc-title">사람</div>
+      <div class="lc-body">경주 출생 · 교토 유학<br>대구대학교 30년 재직<br>흙과 함께한 삶의 궤적</div>
+    </div>
+    <div class="life-card">
+      <div class="lc-num">02</div>
+      <div class="lc-title">철학</div>
+      <div class="lc-body">자연 · 조형 · 실험<br>흙이 말하는 방식으로<br>시간을 담아내는 작업</div>
+    </div>
+    <div class="life-card">
+      <div class="lc-num">03</div>
+      <div class="lc-title">작품 세계</div>
+      <div class="lc-body">분청의 현대적 재해석<br>생애에서 고적까지<br>50년의 조형 탐구</div>
+    </div>
+  </div>
+  <div class="quote-block">
+    <div class="quote-text">"흙은 거짓말을 하지 않는다. 손의 기억이 그대로 남아있다."</div>
+    <div class="quote-source">— 영남일보 인터뷰</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-header">
+    <div><span class="sec-num">03</span><span class="sec-title">작품 갤러리</span></div>
+    <div class="sec-en">Gallery</div>
+  </div>
+  <div class="gallery-controls">
+    <div class="view-toggle">
+      <button class="vt-btn active">그리드뷰</button>
+      <button class="vt-btn">시리즈뷰</button>
+    </div>
+    <div class="filter-tabs">
+      <button class="ft-btn active">전체</button>
+      <button class="ft-btn">생태생장</button>
+      <button class="ft-btn">고적담</button>
+      <button class="ft-btn">분청생활도자</button>
+      <button class="ft-btn">대형작</button>
+    </div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2018</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2019</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2020</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2021</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2021</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2022</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2023</div></div>
+    <div class="gallery-cell"><div class="cell-name">작품명</div><div class="cell-year">2024</div></div>
+  </div>
+</section>
+
+<!-- TECHNIQUE -->
+<section id="technique">
+  <div class="sec-header">
+    <div><span class="sec-num">04</span><span class="sec-title">기법 &amp; 재료</span></div>
+    <div class="sec-en">Technique &amp; Material</div>
+  </div>
+  <div class="tech-tabs">
+    <button class="tech-tab active" onclick="switchTab('process')">단계별 프로세스</button>
+    <button class="tech-tab" onclick="switchTab('infographic')">인포그래픽</button>
+  </div>
+
+  <!-- 단계별 프로세스 -->
+  <div id="process" class="tab-content active">
+    <div class="steps">
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-circle"><div class="step-circle-text">흙</div></div>
+        <div class="step-name">흙</div>
+        <div class="step-keyword">점토 조적</div>
+        <div class="step-desc">점토를 반죽하고 불순물을 제거해 작업에 알맞은 상태로 만든다</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><div class="step-circle-text">성형</div></div>
+        <div class="step-name">성형</div>
+        <div class="step-keyword">물레·수작업</div>
+        <div class="step-desc">점토알갱이를 하나씩 쌓아 올리는 조적 기법으로 형태를 만든다</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><div class="step-circle-text">소성</div></div>
+        <div class="step-name">소성</div>
+        <div class="step-keyword">1280°C 가마</div>
+        <div class="step-desc">가마 안에서 고온으로 굽는다. 불의 온도와 시간이 색을 결정한다</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><div class="step-circle-text">완성</div></div>
+        <div class="step-name">완성</div>
+        <div class="step-keyword">색화장토</div>
+        <div class="step-desc">가마 안에서 고온으로 굽는다. 불의 온도와 시간이 색을 결정한다</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-card">
+        <div class="dc-icon">🪨</div>
+        <div>
+          <div class="dc-label">주재료</div>
+          <div class="dc-name">혼합토 · 색화장토</div>
+          <div class="dc-desc">경주 지역 흙을 기반으로 한 혼합 점토. 전통 분청 기법의 백토 화장으로 독특한 표면 구현.</div>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="dc-icon">🤲</div>
+        <div>
+          <div class="dc-label">핵심기법</div>
+          <div class="dc-name">점토 조적 · 분청</div>
+          <div class="dc-desc">점토알갱이를 하나씩 쌓아 접합하는 독창적 방식. 전통 분청의 현대적 재해석.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 인포그래픽 -->
+  <div id="infographic" class="tab-content">
+    <div class="stat-row">
+      <div class="stat-card sc-year">
+        <div class="sc-en">Years of Craft</div>
+        <div class="sc-num">50</div>
+        <div class="sc-unit">년</div>
+        <div class="sc-label">작업 연혁</div>
+      </div>
+      <div class="stat-card sc-temp">
+        <div class="sc-en">Firing Temp</div>
+        <div class="sc-num">1280°C</div>
+        <div class="sc-unit">소성 온도</div>
+        <div class="sc-label">불의 온도</div>
+      </div>
+      <div class="stat-card sc-exhi">
+        <div class="sc-en">Exhibitions</div>
+        <div class="sc-num">14</div>
+        <div class="sc-unit">회</div>
+        <div class="sc-label">국내외 전시</div>
+      </div>
+      <div class="stat-card sc-edu">
+        <div class="sc-en">Education</div>
+        <div class="sc-num">30</div>
+        <div class="sc-unit">년</div>
+        <div class="sc-label">대학 강단 재직</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-card">
+        <div class="dc-icon">🪨</div>
+        <div>
+          <div class="dc-label">주재료</div>
+          <div class="dc-name">혼합토 · 색화장토</div>
+          <div class="dc-desc">경주 지역 흙을 기반으로 한 혼합 점토. 전통 분청 기법의 백토 화장으로 독특한 표면 구현.</div>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="dc-icon">🤲</div>
+        <div>
+          <div class="dc-label">핵심기법</div>
+          <div class="dc-name">점토 조적 · 분청</div>
+          <div class="dc-desc">점토알갱이를 하나씩 쌓아 접합하는 독창적 방식. 전통 분청의 현대적 재해석.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHRONOLOGY -->
+<section id="chronology">
+  <div class="sec-header">
+    <div><span class="sec-num">05</span><span class="sec-title">연보</span></div>
+    <div class="sec-en">Chronology</div>
+  </div>
+  <div class="chron-inner">
+    <div class="timeline">
+      <div class="tl-row"><div class="tl-year">1949</div><div class="tl-event">경주 출생</div></div>
+      <div class="tl-row"><div class="tl-year">1972</div><div class="tl-event">도예 입문</div></div>
+      <div class="tl-row"><div class="tl-year">1980</div><div class="tl-event">교토 유학</div></div>
+      <div class="tl-row"><div class="tl-year">1985</div><div class="tl-event">대구대학교 부임</div></div>
+      <div class="tl-row"><div class="tl-year">1992</div><div class="tl-event">첫 개인전</div></div>
+      <div class="tl-row"><div class="tl-year">2005</div><div class="tl-event">국제 교류전 참가</div></div>
+      <div class="tl-row"><div class="tl-year highlight">2021</div><div class="tl-event highlight">50년 회고전</div></div>
+      <div class="tl-row"><div class="tl-year">2025</div><div class="tl-event">정년 퇴임</div></div>
+    </div>
+    <div class="graph-area">
+      <div class="graph-label">활동 강도 시각화</div>
+      <div class="graph-row"><div class="gr-label">전시·작품</div><div class="gr-bar b1"></div></div>
+      <div class="graph-row"><div class="gr-label">교육</div><div class="gr-bar b2"></div></div>
+      <div class="graph-row"><div class="gr-label">유학·연구</div><div class="gr-bar b3"></div></div>
+      <div class="graph-row"><div class="gr-label">수상·선정</div><div class="gr-bar b4"></div></div>
+      <div class="graph-row"><div class="gr-label">저술·기고</div><div class="gr-bar b5"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE -->
+<section id="archive">
+  <div class="sec-header">
+    <div><span class="sec-num">06</span><span class="sec-title">아카이브</span></div>
+    <div class="sec-en">Archive</div>
+  </div>
+  <div class="archive-filters">
+    <button class="af-btn active">전체</button>
+    <button class="af-btn">팸플릿·도록</button>
+    <button class="af-btn">언론 기사</button>
+  </div>
+  <div class="archive-cards">
+    <div class="archive-card">
+      <div class="ac-thumb"></div>
+      <div class="ac-body">
+        <div class="ac-type">팸플릿</div>
+        <div class="ac-title">2021 회고전 도록</div>
+      </div>
+    </div>
+    <div class="archive-card">
+      <div class="ac-thumb"></div>
+      <div class="ac-body">
+        <div class="ac-type">팸플릿</div>
+        <div class="ac-title">개인전 팸플릿</div>
+      </div>
+    </div>
+    <div class="archive-card">
+      <div class="ac-thumb"></div>
+      <div class="ac-body">
+        <div class="ac-type">언론 기사</div>
+        <div class="ac-title">영남일보 인터뷰</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRIBUTE -->
+<section id="tribute">
+  <div class="tribute-label">Tribute · 헌정</div>
+  <div class="tribute-divider"></div>
+  <div class="tribute-quote">"흙으로 세상을 빚어온 당신의 손, 그 따뜻함이 우리 삶에 스며들었습니다."</div>
+  <div class="tribute-photo"></div>
+  <div class="tribute-body">50년의 시간을 흙과 함께 살아온 아버지, 선생님, 그리고 예술가에게 이 공간을 바칩니다</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">김기조 · Kim Ki-jo · 1949–</div>
+  <div class="footer-copy">© 2025 Family Archive · All rights reserved</div>
+</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tech-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
