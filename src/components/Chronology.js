@@ -1,7 +1,15 @@
 import React from 'react';
 import '../styles/Chronology.css';
+import useScrollFade from '../hooks/useScrollFade';
 
 function Chronology() {
+  const [ref, visible] = useScrollFade(0.3);
+
+  const fadeItem = (index) => ({
+    opacity: visible ? 1 : 0,
+    transition: `opacity 1.2s ease ${index * 0.5}s`,
+  });
+
   const events = [
     { year: '1949', event: '경주 출생', highlight: false },
     { year: '1972', event: '도예 입문', highlight: false },
@@ -22,24 +30,24 @@ function Chronology() {
   ];
 
   return (
-    <section id="연보" className="chronology">
-      <div className="sec-header">
+    <section id="연보" className="chronology" ref={ref}>
+      <div className="sec-header" style={fadeItem(0)}>
         <div><span className="sec-num">05</span><span className="sec-title">연보</span></div>
         <div className="sec-en">Chronology</div>
       </div>
       <div className="chron-inner">
         <div>
           {events.map((e, i) => (
-            <div key={i} className="tl-row">
-              <div className={`tl-year ${e.highlight ? 'active' : ''}`}>{e.year}</div>
+            <div key={i} className="tl-row" style={fadeItem(i + 1)}>
+              <div className={`tl-year ${e.highlight ? 'highlight' : ''}`}>{e.year}</div>
               <div className={`tl-event ${e.highlight ? 'highlight' : ''}`}>{e.event}</div>
             </div>
           ))}
         </div>
-        <div className="graph-area">
+        <div className="graph-area" style={fadeItem(1)}>
           <div className="graph-label">활동 강도 시각화</div>
           {bars.map((bar, i) => (
-            <div key={i} className="graph-row">
+            <div key={i} className="graph-row" style={fadeItem(i + 2)}>
               <div className="gr-label">{bar.label}</div>
               <div className="gr-bar" style={{ width: bar.width, background: bar.color }} />
             </div>

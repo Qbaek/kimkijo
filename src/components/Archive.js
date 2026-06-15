@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import '../styles/Archive.css';
+import useScrollFade from '../hooks/useScrollFade';
 
 function Archive() {
+  const [ref, visible] = useScrollFade(0.3);
   const [activeFilter, setActiveFilter] = useState('전체');
+
+  const fadeItem = (index) => ({
+    opacity: visible ? 1 : 0,
+    transition: `opacity 1.2s ease ${index * 0.5}s`,
+  });
+
   const cards = [
     { type: '팸플릿', title: '2021 회고전 도록' },
     { type: '팸플릿', title: '개인전 팸플릿' },
@@ -10,19 +18,19 @@ function Archive() {
   ];
 
   return (
-    <section id="아카이브" className="archive">
-      <div className="sec-header">
+    <section id="아카이브" className="archive" ref={ref}>
+      <div className="sec-header" style={fadeItem(0)}>
         <div><span className="sec-num">06</span><span className="sec-title">아카이브</span></div>
         <div className="sec-en">Archive</div>
       </div>
-      <div className="archive-filters">
+      <div className="archive-filters" style={fadeItem(1)}>
         {['전체', '팸플릿·도록', '언론 기사'].map(f => (
           <button key={f} onClick={() => setActiveFilter(f)} className={`af-btn ${activeFilter === f ? 'active' : ''}`}>{f}</button>
         ))}
       </div>
       <div className="archive-cards">
         {cards.map((card, i) => (
-          <div key={i} className="archive-card">
+          <div key={i} className="archive-card" style={fadeItem(i + 2)}>
             <div className="ac-thumb" />
             <div className="ac-body">
               <div className="ac-type">{card.type}</div>

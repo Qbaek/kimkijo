@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/Gallery.css';
+import useScrollFade from '../hooks/useScrollFade';
 
 function Gallery() {
+  const [ref, visible] = useScrollFade(0.3);
   const [activeFilter, setActiveFilter] = useState('전체');
   const filters = ['전체', '생태생장', '고적담', '분청생활도자', '대형작'];
   const cells = [
@@ -11,13 +13,18 @@ function Gallery() {
     { name: '작품명', year: '2023' }, { name: '작품명', year: '2024' },
   ];
 
+  const fadeItem = (index) => ({
+    opacity: visible ? 1 : 0,
+    transition: `opacity 1.2s ease ${index * 0.5}s`,
+  });
+
   return (
-    <section id="갤러리" className="gallery">
-      <div className="sec-header">
+    <section id="갤러리" className="gallery" ref={ref}>
+      <div className="sec-header" style={fadeItem(0)}>
         <div><span className="sec-num">03</span><span className="sec-title">작품 갤러리</span></div>
         <div className="sec-en">Gallery</div>
       </div>
-      <div className="gallery-controls">
+      <div className="gallery-controls" style={fadeItem(1)}>
         <div className="view-toggle">
           {['그리드뷰', '시리즈뷰'].map(v => (
             <button key={v} className="vt-btn">{v}</button>
@@ -31,7 +38,7 @@ function Gallery() {
       </div>
       <div className="gallery-grid">
         {cells.map((cell, i) => (
-          <div key={i} className="gallery-cell">
+          <div key={i} className="gallery-cell" style={fadeItem(i + 2)}>
             <div className="cell-name">{cell.name}</div>
             <div className="cell-year">{cell.year}</div>
           </div>

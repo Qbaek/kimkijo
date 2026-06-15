@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/Technique.css';
+import useScrollFade from '../hooks/useScrollFade';
 
 function Technique() {
+  const [ref, visible] = useScrollFade(0.3);
   const [activeTab, setActiveTab] = useState('process');
+
+  const fadeItem = (index) => ({
+    opacity: visible ? 1 : 0,
+    transition: `opacity 1.2s ease ${index * 0.5}s`,
+  });
 
   const steps = [
     { text: '흙', name: '흙', keyword: '점토 조적', desc: '점토를 반죽하고 불순물을 제거해 작업에 알맞은 상태로 만든다' },
@@ -24,12 +31,12 @@ function Technique() {
   ];
 
   return (
-    <section id="기법" className="technique">
-      <div className="sec-header">
+    <section id="기법" className="technique" ref={ref}>
+      <div className="sec-header" style={fadeItem(0)}>
         <div><span className="sec-num">04</span><span className="sec-title">기법 & 재료</span></div>
         <div className="sec-en">Technique & Material</div>
       </div>
-      <div className="tech-tabs">
+      <div className="tech-tabs" style={fadeItem(1)}>
         {[['process', '단계별 프로세스'], ['infographic', '인포그래픽']].map(([key, label]) => (
           <button key={key} onClick={() => setActiveTab(key)} className={`tech-tab ${activeTab === key ? 'active' : ''}`}>{label}</button>
         ))}
@@ -40,7 +47,7 @@ function Technique() {
           <div className="steps">
             <div className="step-line" />
             {steps.map((step, i) => (
-              <div key={i} className="step">
+              <div key={i} className="step" style={fadeItem(i + 2)}>
                 <div className="step-circle"><span className="step-circle-text">{step.text}</span></div>
                 <div className="step-name">{step.name}</div>
                 <div className="step-keyword">{step.keyword}</div>
@@ -50,7 +57,7 @@ function Technique() {
           </div>
           <div className="detail-row">
             {details.map((card, i) => (
-              <div key={i} className="detail-card">
+              <div key={i} className="detail-card" style={fadeItem(i + 6)}>
                 <div className="dc-icon">{card.icon}</div>
                 <div>
                   <div className="dc-label">{card.label}</div>
@@ -67,7 +74,7 @@ function Technique() {
         <div>
           <div className="stat-row">
             {stats.map((stat, i) => (
-              <div key={i} className={`stat-card ${stat.cls}`}>
+              <div key={i} className={`stat-card ${stat.cls}`} style={fadeItem(i + 2)}>
                 <div className="sc-en">{stat.en}</div>
                 <div className="sc-num">{stat.num}</div>
                 <div className="sc-unit">{stat.unit}</div>
@@ -77,7 +84,7 @@ function Technique() {
           </div>
           <div className="detail-row">
             {details.map((card, i) => (
-              <div key={i} className="detail-card">
+              <div key={i} className="detail-card" style={fadeItem(i + 6)}>
                 <div className="dc-icon">{card.icon}</div>
                 <div>
                   <div className="dc-label">{card.label}</div>
