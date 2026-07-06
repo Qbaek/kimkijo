@@ -84,6 +84,82 @@
   letter-spacing: 0.08em;
 }
 
+/* 시리즈뷰 */
+.series-view {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.series-group {}
+
+.series-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.series-name {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.series-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--gold-muted);
+}
+
+.series-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.series-row::-webkit-scrollbar {
+  height: 3px;
+}
+
+.series-row::-webkit-scrollbar-track {
+  background: var(--border);
+}
+
+.series-row::-webkit-scrollbar-thumb {
+  background: var(--gold-muted);
+  border-radius: 2px;
+}
+
+.series-cell {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.series-thumb {
+  width: 200px;
+  height: 200px;
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .series-cell {
+    width: 160px;
+  }
+
+  .series-thumb {
+    width: 160px;
+    height: 160px;
+  }
+}
+
 /* 반응형을 위한 css 시작 */
 @media (max-width: 768px) {
   .gallery {

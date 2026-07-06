@@ -17,6 +17,10 @@ function Archive() {
     { type: '언론 기사', title: '영남일보 인터뷰' },
   ];
 
+  const filteredCards = activeFilter === '전체'
+    ? cards
+    : cards.filter(c => c.type === activeFilter);
+
   return (
     <section id="아카이브" className="archive" ref={ref}>
       <div className="sec-header" style={fadeItem(0)}>
@@ -24,12 +28,16 @@ function Archive() {
         <div className="sec-en">Archive</div>
       </div>
       <div className="archive-filters" style={fadeItem(1)}>
-        {['전체', '팸플릿·도록', '언론 기사'].map(f => (
-          <button key={f} onClick={() => setActiveFilter(f)} className={`af-btn ${activeFilter === f ? 'active' : ''}`}>{f}</button>
+        {['전체', '팸플릿', '언론 기사'].map(f => (
+          <button
+            key={f}
+            onClick={() => setActiveFilter(f)}
+            className={`af-btn ${activeFilter === f ? 'active' : ''}`}
+          >{f}</button>
         ))}
       </div>
       <div className="archive-cards">
-        {cards.map((card, i) => (
+        {filteredCards.map((card, i) => (
           <div key={i} className="archive-card" style={fadeItem(i + 2)}>
             <div className="ac-thumb" />
             <div className="ac-body">

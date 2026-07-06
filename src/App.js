@@ -7,6 +7,7 @@ import Technique from './components/Technique';
 import Chronology from './components/Chronology';
 import Archive from './components/Archive';
 import Tribute from './components/Tribute';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
       <Chronology />
       <Archive />
       <Tribute />
+      <Contact />
       <Footer />
     </div>
   );
