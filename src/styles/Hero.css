@@ -113,22 +113,15 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: var(--bg-primary);
   }
 
   .hero-left {
-    flex: 1;
-    padding: 40px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--bg-primary);
   }
 
   .hero-right {
-    flex: 1;
-    padding: 40px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--bg-primary);
   }
 
   .hero-divider {
