@@ -29,6 +29,7 @@
   bottom: 0;
   width: 0.5px;
   background: var(--border-light);
+  
 }
 
 .photo-placeholder {
@@ -36,12 +37,16 @@
   height: 380px;
   background: var(--bg-card);
   border: 0.5px solid var(--border-light);
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .artwork-placeholder {
   width: 340px;
   height: 340px;
   background: var(--bg-card-deep);
+  background-size: cover;
+  background-position: 50% 50%;
   border: 0.5px solid var(--border-light);
 }
 

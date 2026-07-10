@@ -38,10 +38,20 @@ function Hero() {
     <section id="hero" className="hero">
       <div className="hero-divider" />
       <div className="hero-left">
-        <div className="photo-placeholder" style={fadeStyle(visible.left)} />
+        <img
+          className="photo-placeholder"
+          src="https://res.cloudinary.com/smn0s6kv/image/upload/v1783394146/work_016_k3whry.png"
+          alt="김기조 작품"
+          style={fadeStyle(visible.left)}
+        />
       </div>
       <div className="hero-right">
-        <div className="artwork-placeholder" style={fadeStyle(visible.right)} />
+        <img
+          className="artwork-placeholder"
+          src="https://res.cloudinary.com/smn0s6kv/image/upload/v1783394159/work_014_q9aqiw.png"
+          alt="김기조 작품"
+          style={fadeStyle(visible.right)}
+        />
       </div>
       <div className="overlay-card" style={fadeStyle(visible.card)}>
         <div className="oc-eyebrow" style={fadeStyle(visible.eyebrow)}>Ceramist · Professor · Artist</div>
