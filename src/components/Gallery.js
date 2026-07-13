@@ -100,7 +100,7 @@ function Gallery() {
                     className="series-cell"
                     onClick={() => setSelectedCell(cell)}
                   >
-                    <div className="series-thumb" />
+                    <img src={cell.image} alt={cell.name} className="series-thumb" />
                     <div className="cell-name">{cell.name}</div>
                     <div className="cell-year">{cell.year}</div>
                   </div>

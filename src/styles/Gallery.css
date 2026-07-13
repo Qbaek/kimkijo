@@ -144,9 +144,10 @@
 .series-thumb {
   width: 200px;
   height: 200px;
-  background: var(--bg-card);
+  object-fit: cover;
   border: 0.5px solid var(--border);
   margin-bottom: 10px;
+  display: block;
 }
 
 
