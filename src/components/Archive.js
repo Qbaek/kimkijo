@@ -12,14 +12,18 @@ function Archive() {
   });
 
   const cards = [
-    { type: '팸플릿', title: '2021 회고전 도록' },
-    { type: '팸플릿', title: '개인전 팸플릿' },
-    { type: '언론 기사', title: '영남일보 인터뷰' },
+    { type: '언론 기사', title: '30년 가까운 교수생활 마무리…도예가 김기조, 새로운 출발', url: 'https://www.yeongnam.com/web/view.php?key=20150203.010240801150001', image: 'https://www.yeongnam.com/mnt/file/201502/20150203.010240801150001i1.jpg' },
+    { type: '언론 기사', title: '대구문화예술회관 기획전 원로작가 회고전-김기조 남충모 전', url: 'https://www.imaeil.com/page/view/2021042615572461417', image: 'https://www.imaeil.com/photos/2021/04/26/2021042615562254697_l.jpg' },
+    { type: '언론 기사', title: '‘자연과 인간’ 담을 허무는 ‘흙의 울림’···김기조 도자조형전 9월14일까지 시안미술관', url: 'https://www.yeongnam.com/web/view.php?key=20140725.010180738590001', image: 'https://www.yeongnam.com/mnt/file/201407/20140725.010180738590001i1.jpg' },
   ];
 
-  const filteredCards = activeFilter === '전체'
+  const filteredCards = activeFilter === '전체' || activeFilter === '언론 기사'
     ? cards
-    : cards.filter(c => c.type === activeFilter);
+    : [];
+
+  const handleClick = (card) => {
+    window.open(card.url, '_blank');
+  };
 
   return (
     <section id="아카이브" className="archive" ref={ref}>
@@ -36,17 +40,31 @@ function Archive() {
           >{f}</button>
         ))}
       </div>
-      <div className="archive-cards">
-        {filteredCards.map((card, i) => (
-          <div key={i} className="archive-card" style={fadeItem(i + 2)}>
-            <div className="ac-thumb" />
-            <div className="ac-body">
-              <div className="ac-type">{card.type}</div>
-              <div className="ac-title">{card.title}</div>
+
+      {activeFilter === '팸플릿' ? (
+        <div className="archive-empty" style={fadeItem(2)}>
+          준비중입니다.
+        </div>
+      ) : (
+        <div className="archive-cards">
+          {filteredCards.map((card, i) => (
+            <div
+              key={i}
+              className="archive-card"
+              style={{ ...fadeItem(i + 2), cursor: 'pointer' }}
+              onClick={() => handleClick(card)}
+            >
+              <div className="ac-thumb">
+                {card.image && <img src={card.image} alt={card.title} className="ac-img" />}
+              </div>
+              <div className="ac-body">
+                <div className="ac-type">{card.type}</div>
+                <div className="ac-title">{card.title}</div>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

@@ -17,8 +17,8 @@ function Chronology() {
     { year: '1985', event: '대구대학교 부임', highlight: false },
     { year: '1992', event: '첫 개인전', highlight: false },
     { year: '2005', event: '국제 교류전 참가', highlight: false },
+    { year: '2015', event: '정년 퇴임', highlight: false },
     { year: '2021', event: '50년 회고전', highlight: true },
-    { year: '2025', event: '정년 퇴임', highlight: false },
   ];
 
   const bars = [
